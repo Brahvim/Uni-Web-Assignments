@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<style>
+	:root {
+		--form-inputs-width: 110%;
+	}
+
+	body {
+		display: flex;
+		margin-top: 8%;
+		align-items: center;
+		font-family: sans-serif;
+		justify-content: center;
+	}
+
+	form.form1 {
+		width: 20%;
+		scale: 1.5;
+		align-items: center;
+	}
+
+	form.form1#error {
+		text-align: center;
+	}
+
+	form.form1 input {
+		scale: 1;
+		border-radius: 10px;
+		border: 2px solid grey;
+		transition-duration: 0.1s;
+		transition-property: scale;
+		width: var(--form-inputs-width);
+	}
+
+	form.form1#submit {
+		border: solid;
+		color: black;
+		margin-top: 10%;
+		border-width: 5px;
+		border-radius: 5px;
+		border-color: transparent;
+		width: var(--form-inputs-width);
+		/* background-color: rgb(192, 93, 228); */
+	}
+
+	form.form1 input:hover,
+	form.form1 input:focus {
+		scale: 1.25;
+	}
+
+	form.form1 input:active {
+		/* background-color: rgb(148, 72, 176); */
+	}
+</style>
+
+<body>
+	<form class="form1" action="/6/thanks.html" novalidate>
+
+		Name <br>
+		<input id="name" type="text" />
+		<br>
+
+		Password <br>
+		<input id="pass" type="password" />
+		<br>
+
+		E-mail <br>
+		<input id="mail" type="email" />
+		<p id="error" hidden="true"></p>
+
+		Phone <br>
+		<input id="phone" type="text" />
+		<br>
+
+		Gender <br>
+		Male <input id="gender" name="gender" type="checkbox" />
+		Female <input id="gender" name="gender" type="checkbox" />
+		<br>
+
+		Date Of Birth <br>
+		<input id="dobd" type="number" />
+		<input id="dobm" type="number" />
+		<input id="doby" type="number" />
+		<br>
+
+		Languages <br>
+		Hindi <input id="lang" name="lang" type="checkbox" />
+		English <input id="lang" name="lang" type="checkbox" />
+		<br>
+
+		Address <br>
+		<input id="pin" type="text" />
+		<br>
+		<input id="submit" type="submit" value="Go!" />
+	</form>
+</body>
+
+<script>
+	/** @type { HTMLFormElement } */ const g_form1ErrorText = document.querySelector("#error");
+	/** @type { HTMLFormElement } */ const g_form1 = document.querySelector("form.form1");
+
+	/** @type { HTMLInputElement[] } */ const g_inputForm1Inputs = [...g_form1.querySelectorAll("input")];
+	/** @type { HTMLInputElement } */ const g_inputForm1Submit = g_form1.querySelector("input[submit]");
+	/** @type { string[] } */ const g_inputForm1InputsIds = g_inputForm1Inputs.map(e => e.id);
+
+	// console.log(g_inputForm1Ids);
+
+	const form1Submit = (p_event) => {
+
+		g_form1ErrorText.innerHTML = "";
+
+		/** @type { Object<string, string> } */ const form1Values = {};
+
+		for (let i of g_inputForm1InputsIds) { // Pre-inflate w/ shapes?
+
+			form1Values[i] = "";
+
+		}
+
+		for (let e of g_inputForm1Inputs) {
+
+			form1Values[e.id] = e.value;
+
+		}
+
+		// console.log(form1Fields);
+
+		/** @param { string } p_reason */
+		const cancel = (p_reason) => {
+
+			g_form1ErrorText.innerHTML += "<br>" + p_reason ?? "Sorry. Unknown error...";
+			g_form1ErrorText.hidden = false;
+			p_event.preventDefault();
+
+		};
+
+		for (let i of g_inputForm1InputsIds) {
+
+			/** @type { string } */
+			const field = form1Values[i] ?? "";
+
+			switch (i) {
+
+				case "mail": {
+
+					if (!field.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+
+						cancel("Mail must use a valid domain name, <code>@</code>, et cetera.");
+
+					}
+
+				} break;
+
+				case "phone": {
+
+					if (field.length() != 10) {
+
+						cancel("Password cannot be under 6 characters.");
+
+					}
+
+				} break;
+
+				default: {
+
+					// cancel();
+
+				} break;
+
+			}
+
+		}
+
+		// cancel();
+
+	};
+
+	g_form1.addEventListener("submit", form1Submit);
+	g_form1.addEventListener("onsubmit", form1Submit);
+</script>
+
+</html>
