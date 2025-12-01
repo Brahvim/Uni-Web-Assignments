@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1.0"
+>
+
+<title>Todos!</title>
+
+<template class="task">
+	<textarea
+		oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"
+		placeholder="Click to type!"
+		class="task-text"
+	></textarea>
+	<button
+		onclick="this.parentElement.remove()"
+		class="task-close"
+	>x</button>
+</template>
+
+<template class="cbutton delall1">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span>Delete</span>
+	<span>All?</span>
+</template>
+
+<template class="cbutton delall2">
+	<span>ARE YOU SURE?</span>
+</template>
+
+<body>
+	<div class="controls"> <!-- Contains `.cbutton`s that compose the control panel. -->
+		<button class="cbutton add">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span><b>+</b></span>
+			<span>Add</span>
+		</button>
+		<button class="cbutton refresh">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<!-- `↻` (U+21BB) `⟳` (U+27F3) -->
+			<span><b>⟳</b></span>
+			<span>Sync</span>
+		</button>
+		<button class="cbutton delall">
+		</button>
+	</div>
+	<div class="tasklist-parent">
+		<h1>To-Dos!</h1>
+		<div class="tasklist"></div>
+	</div>
+</body>
+
+<style>
+	body {
+		display: flex;
+		background: white;
+		flex-direction: row;
+		font-family: sans-serif;
+	}
+
+	.task {
+		/* width: 80%; */
+		display: flex;
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		margin-bottom: 10px;
+		flex-direction: row;
+		background-color: #444;
+
+		border-radius: 25px;
+		border: dashed 2px green;
+		border-bottom-left-radius: 0px;
+		border-left: solid 50px green;
+		/* border-bottom-right-radius: 0px; */
+	}
+
+	.task-text {
+		width: 90%;
+		margin-left: 2.5%;
+		border-radius: 25px;
+		/* resize: vertical; */
+		/* height: max-content; */
+		/* border-bottom-right-radius: 0%; */
+
+		color: white;
+		text-align: center;
+		font-size: xx-large;
+		font-family: sans-serif;
+		background-color: grey;
+		border: dashed 2px green;
+	}
+
+	.task-close {
+		width: 25px;
+		height: 25%;
+		margin-top: 2.5%;
+		margin-left: 18px;
+	}
+
+	.tasklist {
+		gap: 0;
+		width: 90%;
+		height: 100%;
+		display: flex;
+		padding-bottom: 25px;
+		/* margin-left: 15%; */
+		flex-direction: column;
+	}
+
+	.tasklist-parent {
+		width: 83.5%;
+		height: 150%;
+
+		margin-left: 5%;
+		/* padding-left: 2%; */
+		/* padding-right: 2%; */
+
+		color: white;
+		background: #bbb;
+		border-radius: 50px;
+
+		display: flex;
+		text-align: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.controls {
+		/* Make it static: */
+		top: 25%;
+		scale: 1.5;
+		z-index: 9999;
+		margin-top: 15%;
+		position: sticky;
+
+		/* Layout & Border: */
+		width: 90px;
+		height: 220px;
+		margin-left: 2.5%;
+		border-radius: 50px;
+		box-shadow: 0 0 15px teal;
+
+		/* For the content: */
+		gap: 5%;
+		display: flex;
+		padding-top: 40px;
+		background: cyan;
+		flex-direction: column;
+	}
+
+	.cbutton {
+		/* Layout: */
+		width: 60%;
+		height: 60px;
+		margin-left: 20%;
+
+		/* Colors: */
+		color: white;
+		background: linear-gradient(deeppink, deeppink);
+
+		/* Text effects: */
+		gap: 0.1rem;
+		display: flex;
+		font-size: 10pt;
+		cursor: pointer;
+		font-weight: 400;
+		text-align: center;
+		align-items: center;
+		flex-direction: column;
+
+		/* Border: */
+		border-radius: 15px;
+		border: 2px solid red;
+		box-shadow: 0 0 25px pink;
+
+		/* Hover animation: */
+		transform: scale(1);
+		transition: transform 0.15s ease-in-out, background 0.15s ease-in;
+	}
+
+	/* Control buttons' hover animation: */
+	.cbutton:focus,
+	.cbutton:hover {
+		transform: scale(1.5);
+		background: linear-gradient(orchid, deeppink);
+	}
+
+	/* DELETE ALL's hover animation: */
+	.cbutton.delall:focus,
+	.cbutton.delall:hover {
+		transform: scale(1.75);
+		background: linear-gradient(red, red);
+	}
+
+	/* DELETE ALL's active animation: */
+	.cbutton.delall:active {
+		transform: scale(1.5);
+		background: linear-gradient(orchid, red);
+	}
+
+	/* Control buttons' active animation: */
+	.cbutton:active {
+		transform: scale(1.2);
+	}
+</style>
+
+<script
+	src="index.mjs"
+	type="module"
+></script>
+
+</html>

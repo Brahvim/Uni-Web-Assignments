@@ -1,0 +1,12 @@
+{
+	"type": "module",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^5.1.0",
+		"mariadb": "^3.4.4"
+	},
+	"version": "1.0.0",
+	"name": "todos-app",
+	"main": "server.mjs",
+	"author": "@Brahvim"
+}
