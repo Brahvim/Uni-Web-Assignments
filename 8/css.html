@@ -2,13 +2,175 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css.HTML™️</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Css.HTML™️</title>
+	<meta charset="UTF-8">
+	<style>
+		/* Font Classes: */
+		.fnt-fm-cambria {
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		}
+
+		.fnt-fm-arial {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.fnt-fm-courier {
+			font-family: 'Courier New', Courier, monospace;
+		}
+
+		.fnt-fm-verdana {
+			font-family: Verdana, Geneva, sans-serif;
+		}
+
+		.fnt-st-oblique {
+			font-style: oblique;
+		}
+
+		.fnt-st-italic {
+			font-style: italic;
+		}
+
+		.fnt-wt-bolder {
+			font-weight: bolder;
+		}
+
+		.fnt-clr-w {
+			color: azure;
+		}
+
+		.fnt-clr-blk {
+			color: black;
+		}
+
+		/* Backgrounds: */
+		.bg-body {
+			background-image: url("bg.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-color: #181818;
+			background-position: center;
+			background-size: cover;
+		}
+
+		.bg-div {
+			background-image: url("glass.png");
+			background-repeat: no-repeat;
+			background-position: center;
+			backdrop-filter: blur(6%);
+			background-size: cover;
+		}
+
+		.bg-blk {
+			background-color: #444;
+		}
+
+		/* Bootstrap-Like Sizing: */
+		.h-80 {
+			height: 80px;
+		}
+
+		.w-80 {
+			width: 80px;
+		}
+
+		.h-300pt {
+			height: 300pt;
+		}
+
+		.w-50per {
+			width: 50%;
+		}
+
+		.m-left-20 {
+			margin-left: 20%;
+		}
+
+		.m-left-40 {
+			margin-left: 40%;
+		}
+
+		/* Layout Utilities: */
+		.d-flex {
+			display: flex;
+		}
+
+		.flex-dir-col {
+			flex-direction: column;
+		}
+
+		.flex-dir-row {
+			flex-direction: row;
+		}
+
+		.justify-center {
+			justify-content: center;
+		}
+
+		.align-center {
+			align-items: center;
+		}
+
+		.m-auto {
+			margin: auto;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		.p-2 {
+			padding: 0.5rem;
+		}
+
+		.p-4 {
+			padding: 1rem;
+		}
+
+		.rounded {
+			border-radius: 0.5rem;
+		}
+	</style>
 </head>
 
-<body>
-
+<body class="bg-body fnt-fm-arial fnt-clr-w d-flex flex-dir-col justify-center align-center">
+	<div class="bg-blk rounded w-50per h-300pt">
+		<table class="d-flex flex-dir-col">
+			<tr class="align-center">
+				<div class="m-left-40 fnt-fm-courier fnt-st-italic d-flex flex-dir-row text-center align-center">
+					Search for...
+					<div class="m-left-20 bg-div w-80 h-80 rounded d-flex flex-dir-col justify-center align-center">
+					</div>
+				</div>
+			</tr>
+			<tr>
+				<h3 class="fnt-fm-cambria fnt-st-oblique fnt-clr-w text-center">
+					Liquid Glass.
+				</h3>
+				<p class="fnt-wt-bolder fnt-clr-w text-center">
+					Liquid Glass is a theme inspired by the late 2000s' "Aero" theme family.
+				</p>
+			</tr>
+			<tr>
+				<h3 class="fnt-st-italic text-center">
+					Sans-Serif
+				</h3>
+				<p class="fnt-wt-bolder fnt-clr-w text-center">
+					Sans-Serif is a widely-used font that does not have serifs. <br>
+					The word "Sans" is of French origin and denotes <i>absence.</i>
+				</p>
+			</tr>
+			<tr>
+				<h3 class="fnt-st-italic text-center">
+					ESP32
+				</h3>
+				<p class="fnt-wt-bolder fnt-clr-w text-center">
+					The ESP32 is a very powerful SoC from China's Espressif Systems.<br>
+					The first ESP32 was seen in 2009. It has always been a 32-bit 2-core SoC.
+				</p>
+			</tr>
+		</table>
+	</div>
 </body>
 
 </html>

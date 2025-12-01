@@ -41,4 +41,10 @@
 	</table>
 </center>
 
+<script>
+	document.querySelector("iframe")
+		.src = new URL(document.location)
+			.searchParams.get("p") || "/1/home.html";
+</script>
+
 </html>

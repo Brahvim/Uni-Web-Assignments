@@ -55,9 +55,9 @@
 		scale: 1.25;
 	}
 
-	form.form1 input:active {
-		/* background-color: rgb(148, 72, 176); */
-	}
+	/* form.form1 input:active {
+		background-color: rgb(148, 72, 176);
+	} */
 </style>
 
 <body>
@@ -151,13 +151,13 @@
 				case "name": {
 
 					// alert(`Name 1\"${field}\".`);
-					if (field.length() < 6) {
+					if (field.length < 6) {
 
 						cancel("Name cannot be under 6 characters.");
 
 					}
 
-					if (!field.match(/^[a-zA-Z]$/)) {
+					if (!field.match(/^[a-zA-Z]+$/)) {
 
 						cancel("Name can use only alphabets.");
 
@@ -167,7 +167,7 @@
 
 				case "password": {
 
-					if (field.length() < 6) {
+					if (field.length < 6) {
 
 						cancel("Password cannot be under 6 characters.");
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pseudo-Classes On Anchors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Font Classes: */
+        .fnt-fm-arial {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .fnt-clr-w {
+            color: white;
+        }
+
+        /* Background (Repeating!): */
+        .bg-repeat {
+            background-image: url("tile.png");
+            background-position: top left;
+            background-repeat: repeat;
+            background-color: #111;
+            background-size: auto;
+        }
+
+        /* Layout: */
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        /* Pseudo-Classes: */
+        .a-link {
+            color: #66aaff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .a-link:visited {
+            color: #aa88ff;
+        }
+
+        .a-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .a-link:active {
+            color: #ff5555;
+        }
+
+        .a-link:focus {
+            outline: 2px dashed #fff;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-repeat fnt-fm-arial fnt-clr-w p-4">
+
+    <h1>Repeating Background + Link Tests</h1>
+
+    <p class="mt-2">
+        <a href="#" class="a-link">Normal link</a>
+    </p>
+
+    <p class="mt-2">
+        <a href="#" class="a-link">Hover me</a>
+    </p>
+
+    <p class="mt-2">
+        <a href="#" class="a-link">Visited test</a>
+    </p>
+
+    <p class="mt-2">
+        <a href="#" class="a-link">Active (press me)</a>
+    </p>
+
+    <p class="mt-2">
+        <a href="#" class="a-link">Focus (tab to me)</a>
+    </p>
+
+</body>
+
+</html>
